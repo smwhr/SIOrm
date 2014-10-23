@@ -37,11 +37,11 @@ abstract class Entity{
   }
 
   public function __get($p){
-    var_dump($p);
     $cols= $this->getColumns();
     if(!isset($cols[$p])){
-      throw new \Exception("Euh non...");
+      throw new \Exception("La propriété ".$p." n'existe pas !");
     }
+    
     return $this->$p;
   }
 

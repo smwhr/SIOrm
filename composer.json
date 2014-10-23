@@ -15,7 +15,8 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-0": {
-            "SIOrm": "src/"
+            "SIOrm": "src/",
+            "Model": "src/"
         }
     }
 }

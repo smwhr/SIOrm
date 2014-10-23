@@ -8,7 +8,7 @@ class Manager{
     $this->db = $db;
   }
 
-  public function get($classname){
+  public function get($classname, $id = null){
     $o = new $classname($this);
     return $o;
   }

@@ -12,7 +12,7 @@ $connectionParams = array(
 $db = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
 
 $my_obj_create_query = <<<EOF
-CREATE TABLE IF NOT EXISTS `my_obj` (
+CREATE TABLE IF NOT EXISTS `poney` (
   `id` INTEGER PRIMARY KEY,
   `name` varchar(255),
   `content` text,
@@ -22,15 +22,51 @@ CREATE TABLE IF NOT EXISTS `my_obj` (
 EOF;
 $db->query($my_obj_create_query);
 
+$filler_data = <<<EOF
+INSERT INTO poney VALUES (NULL, 'Gilbert', '','{"sexe":"m"}',4);
+INSERT INTO poney VALUES (NULL, 'Sylvie', '','{"sexe":"f"}',5);
+INSERT INTO poney VALUES (NULL, 'Jacques', '','{"sexe":"m"}',4);
+INSERT INTO poney VALUES (NULL, 'Françoise', '','{""}',3);
+INSERT INTO poney VALUES (NULL, 'Serge', '','{"sexe":"o"}',12);
+INSERT INTO poney VALUES (NULL, 'Sheila', '','{"sexe":"f"}',1);
+INSERT INTO poney VALUES (NULL, 'Charles', '','{"sexe":"m"}',5);
+EOF;
+$db->exec($filler_data);
 
-/* YOUR CODE HERE */
+$manager = new SIOrm\Manager($db);
 
-$m = new SIOrm\Manager($db);
-$myPoney = $m->get("SIOrm\Poney");
-$myPoney->name = "Gilbert";
+$myPoney = $manager->get("Model\Poney");
+$myPoney->name = "lorie";
 $myPoney->save();
-
 var_dump($myPoney->id);
+var_dump($myPoney->getPrettyName());
+
+echo (memory_get_usage()/(1024*1024))."\n";
+
+/* TODO 1 */
+/*
+
+$fourthPoney = $manager->getOne("Model\Poney",4);
+var_dump($myPoney->id);
+var_dump($myPoney->getPrettyName());
+var_dump($myPoney->infos["sexe"]);
+
+*/
+
+/* TODO 2 */
+/* HINT : Utiliser un Iterator */
+/*
+
+$allPoneys = $manager->getAll("Model\Poney");
+foreach($allPoneys as $poney){
+  echo "- ".$poney->id." : ".$poney->getPrettyName()."\n";
+}
+
+*/
+
+/* TODO 3 */
+/* Utiliser FilterIterator (http://php.net/manual/en/class.filteriterator.php)
+   pour ne renvoyer que les Poney de sexe féminin
+*/
 
 
-echo $myPoney->couleur; //????
