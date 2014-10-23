@@ -14,19 +14,22 @@ class EntityList implements \Iterator{
   }
 
   public function current (){
-      
+      $o = $this->manager->get($this->classname);
+      foreach ($o->getColumns() as $c => $colinfo){
+        $o->$c = $this->internalArray[$this->pointer][$c];
+      }
+      return $o;
   }
   public function key (){
-      
-
+    return $this->pointer;
   }
   public function next (){
-
+    $this->pointer++;
   }
   public function rewind (){
-
+    $this->pointer = 0;
   }
   public function valid (){
-    
+    return $this->pointer < count($this->internalArray);
   }
 }

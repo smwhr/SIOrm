@@ -45,8 +45,10 @@ echo (memory_get_usage()/(1024*1024))."\n";
 
 /* TODO 1 */
 
-
+$before = memory_get_usage();
 $fourthPoney = $manager->getOne("Model\Poney",3);
+
+
 var_dump($fourthPoney->id);
 var_dump($fourthPoney->getPrettyName());
 var_dump($fourthPoney->infos["sexe"]);
