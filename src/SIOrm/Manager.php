@@ -21,7 +21,6 @@ class Manager{
 
     foreach ($o->getColumns() as $c => $colinfo){
       $o->$c = $raw[$c];
-      echo $c."\n";
     }
     return $o;
   }

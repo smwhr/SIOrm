@@ -45,7 +45,6 @@ abstract class Entity{
 
     if(isset($cols[$p."_json"])){
       $v = json_decode( $this->{$p."_json"} , true);
-      var_dump($v);
       return $v;
     }
 
