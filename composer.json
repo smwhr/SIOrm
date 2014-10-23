@@ -1,0 +1,21 @@
+{
+    "name": "supinternet/my_orm",
+    "description": "Test micro-orm built on Doctrine DBAL",
+    "require": {
+        "doctrine/dbal": ">=2.4.0",
+        "php": ">=5.4.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anne Onyme",
+            "email": "supinternet@smwhr.net"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-0": {
+            "SIOrm": "src/"
+        }
+    }
+}
