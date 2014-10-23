@@ -44,29 +44,33 @@ var_dump($myPoney->getPrettyName());
 echo (memory_get_usage()/(1024*1024))."\n";
 
 /* TODO 1 */
-/*
 
-$fourthPoney = $manager->getOne("Model\Poney",4);
-var_dump($myPoney->id);
-var_dump($myPoney->getPrettyName());
-var_dump($myPoney->infos["sexe"]);
 
-*/
+$fourthPoney = $manager->getOne("Model\Poney",3);
+var_dump($fourthPoney->id);
+var_dump($fourthPoney->getPrettyName());
+var_dump($fourthPoney->infos["sexe"]);
+
+
 
 /* TODO 2 */
 /* HINT : Utiliser un Iterator */
-/*
+var_dump("Début liste");
 
 $allPoneys = $manager->getAll("Model\Poney");
 foreach($allPoneys as $poney){
   echo "- ".$poney->id." : ".$poney->getPrettyName()."\n";
 }
 
-*/
+var_dump("Fin liste");
+
 
 /* TODO 3 */
 /* Utiliser FilterIterator (http://php.net/manual/en/class.filteriterator.php)
    pour ne renvoyer que les Poney de sexe féminin
 */
 
+/* TODO 4 */
+/* Se brancher à l'api de Twitter pour récupérer les 1000 derniers tweets parlant d'un mot clé
+*/
 

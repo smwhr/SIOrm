@@ -38,10 +38,17 @@ abstract class Entity{
 
   public function __get($p){
     $cols= $this->getColumns();
-    if(!isset($cols[$p])){
+
+    if(!isset($cols[$p]) && !isset($cols[$p."_json"])){
       throw new \Exception("La propriété ".$p." n'existe pas !");
     }
-    
+
+    if(isset($cols[$p."_json"])){
+      $v = json_decode( $this->{$p."_json"} , true);
+      var_dump($v);
+      return $v;
+    }
+
     return $this->$p;
   }
 
