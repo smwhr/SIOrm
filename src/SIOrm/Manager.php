@@ -26,7 +26,7 @@ class Manager{
   }
 
   public function getAll($classname){
-    $rawdata = $this->db->fetchAssoc("SELECT * FROM ".$classname::TABLE_NAME);
+    $rawdata = $this->db->fetchAll("SELECT * FROM ".$classname::TABLE_NAME);
     $l = new EntityList($this, $classname, $rawdata);
     return $l;
   }
