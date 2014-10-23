@@ -55,15 +55,22 @@ var_dump($fourthPoney->infos["sexe"]);
 
 /* TODO 2 */
 /* HINT : Utiliser un Iterator */
-var_dump("Début liste");
-
 $allPoneys = $manager->getAll("Model\Poney");
 foreach($allPoneys as $poney){
   echo "- ".$poney->id." : ".$poney->getPrettyName()."\n";
 }
 
-var_dump("Fin liste");
-
+/*
+OUT :
+- 1 : ø¤º°`°º¤ø,¸,ø¤  Gilbert  º¤ø,¸¸,ø¤º°`°º¤ø
+- 2 : ø¤º°`°º¤ø,¸,ø¤  Sylvie  º¤ø,¸¸,ø¤º°`°º¤ø
+- 3 : ø¤º°`°º¤ø,¸,ø¤  Jacques  º¤ø,¸¸,ø¤º°`°º¤ø
+- 4 : ø¤º°`°º¤ø,¸,ø¤  Françoise  º¤ø,¸¸,ø¤º°`°º¤ø
+- 5 : ø¤º°`°º¤ø,¸,ø¤  Serge  º¤ø,¸¸,ø¤º°`°º¤ø
+- 6 : ø¤º°`°º¤ø,¸,ø¤  Sheila  º¤ø,¸¸,ø¤º°`°º¤ø
+- 7 : ø¤º°`°º¤ø,¸,ø¤  Charles  º¤ø,¸¸,ø¤º°`°º¤ø
+- 8 : ø¤º°`°º¤ø,¸,ø¤  Lorie  º¤ø,¸¸,ø¤º°`°º¤ø
+*/
 
 /* TODO 3 */
 /* Utiliser FilterIterator (http://php.net/manual/en/class.filteriterator.php)
